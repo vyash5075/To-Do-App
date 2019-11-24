@@ -1,0 +1,144 @@
+<html>
+    <head>
+            <style>
+                    .bg
+                    {
+                        background-color:navy;
+                        color: yellow;
+                    }
+                    .bg1
+                    {
+                            background-color:white;
+                    }
+                    body{
+                      background-image: url("y3.jpg")
+                    }
+                    p{
+                       font-size: 400%;
+                        text-shadow: 2px 2px #FF0000;
+                    }
+           </style>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    </head>
+ <body >
+   <p style="text-align:center" ><b><i>TO-DO APP<i></b></p><br>
+     <div class="container ">
+           <div class="row">
+               <div class="col-10">
+               <input class="form-control mr-sm-2 outline-dark " type="search" placeholder="Add Event" aria-label="Search" id="a" length="5" >
+              </div>
+              <div class="col-2 ">
+              <button class="btn btn-warning my-2 my-sm-0 " type="submit" id="b">Add Event</button>
+              </div>
+           </div>
+    </div>
+  
+      </div>
+    <div class="container bg1" id="contain">
+    <div class="row " >
+            <div class="col-2  bg" id="s">Sr no</div>
+            <div class="col-4  bg" id="n">Title</div>
+            <div class="col-4  bg" id="d" >Date</div>
+            <div class="col-2  bg" id="del">Action<div class="col"><div ></div></div>
+    </div>
+
+    </div>
+    <script>
+            var counter=0;
+     var btn=document.getElementById('b');
+     var a=document.getElementById('a');
+        a.onkeydown=function(event)
+        {
+            var c=event.keyCode;
+            if(c==13)
+                {
+                    func()
+                }
+        }
+
+          a.onfocus=function(event)
+        {
+             a.style.backgroundColor="black";
+              a.style.color="red";
+
+         }
+          a.onblur=function(event)
+        {
+             a.style.backgroundColor="white";
+              a.style.color="red";
+         }
+       btn.onmouseover=function()
+       {
+           btn.style.backgroundColor="red";
+              btn.style.color="black";
+       }
+       btn.onmouseout=function()
+       {
+           btn.style.backgroundColor="yellow";
+              btn.style.color="black";
+       }
+        btn.onclick= func;
+
+        function func(e)
+        {
+
+                if(!a.value)
+        {
+                alert("Enter a value");
+        }
+        else
+        {
+
+             var r=document.createElement("div");//creating row
+            r.setAttribute("class","row");
+
+            counter=counter+1;
+            var par=document.createElement('div');
+            par.innerHTML=counter;
+            var b=document.getElementById('s');
+            r.appendChild(par).setAttribute('class','col-2');//Sr no
+
+            var value=a.value;
+            var naam=document.createElement('div');
+            naam.innerHTML=value;
+            var n2=document.getElementById('n');
+            r.appendChild(naam).setAttribute('class','col-4');
+
+            var date=document.createElement('div');
+            date.innerHTML= new Date().toLocaleDateString();
+
+            var d2=document.getElementById('d');
+            r.appendChild(date).setAttribute('class','col-4');
+
+
+
+            var action=document.getElementById('del');
+            var btnn=document.createElement('Button');
+            btnn.innerHTML="delete";
+            btnn.addEventListener('click',dele);
+            r.appendChild(btnn).setAttribute('class','btn btn-danger col-2');
+            contain.appendChild(r);
+                btnn.onmouseover=function()
+       {
+           btnn.style.backgroundColor="red";
+              btnn.style.color="black";
+       }
+       btnn.onmouseout=function()
+       {
+           btnn.style.backgroundColor="white";
+              btnn.style.color="red";
+       }
+            a.value="";
+          function dele()
+          {
+                  contain.removeChild(r);
+          }
+        }}
+    </script>
+    </body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+</html>
