@@ -1,6 +1,6 @@
 # To-Do-App
 ## Create a website using javascript .
-## **Technologies Used:-**
+## **Technologies Used:-**.
 * HTML
 * CSS
 * Javascript
